@@ -98,27 +98,41 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
+                // عرض الصورة بشكل دائري فخم مع تبريز حواف نيون
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('الصورة'),
+                    ->label('صورة القطعة')
+                    ->circular()
+                    ->stacked()
+                    ->grow(false),
 
+                // اسم المنتج يظهر بخط عريض وبجانبه الـ Slug كرابط ذكي
                 Tables\Columns\TextColumn::make('name')
-                    ->label('اسم المنتج')
+                    ->label('المنتج')
+                    ->weight('bold')
                     ->searchable()
+                    ->description(fn ($record) => "الرابط: {$record->slug}")
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('category.name')
                     ->label('التصنيف')
+                    ->badge()
+                    ->color('gray') // وسم رمادي غامق أنيق خلف النص
                     ->sortable(),
 
+                // السعر يظهر بلون ذهبي مخصص ملفت للإنتباه
                 Tables\Columns\TextColumn::make('price')
-                    ->label('السعر')
+                    ->label('السعر الحالي')
                     ->money('EGP')
+                    ->weight('heavy')
+                    ->color('amber') // تلوين الحساب بالذهبي
                     ->sortable(),
 
+                // عداد المخزون التفاعلي الذكي (Progress Bar أو Badges مشعة)
                 Tables\Columns\TextColumn::make('stock')
-                    ->label('المخزون')
+                    ->label('حالة المخزن')
                     ->sortable()
                     ->badge()
+                    ->icon(fn (int $state): string => $state <= 5 ? 'heroicon-m-exclamation-triangle' : 'heroicon-m-check-circle')
                     ->color(fn (int $state): string => match (true) {
                         $state <= 0 => 'danger',
                         $state <= 5 => 'warning',
@@ -126,31 +140,26 @@ class ProductResource extends Resource
                     }),
 
                 Tables\Columns\IconColumn::make('is_active')
-                    ->label('نشط')
-                    ->boolean(),
-
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->label('تاريخ الحذف')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->label('الحالة في المتجر')
+                    ->boolean()
+                    ->trueIcon('heroicon-o-eye')
+                    ->falseIcon('heroicon-o-eye-slash'),
+            ])
+            // تعديل واجهة الاستخدام لتصبح سريعة الاستجابة (Responsive Layout)
+            ->contentGrid([
+                'md' => 2,
+                'xl' => 3, // 👈 تحويل الجدول النمطي إلى كروت شبكية متراصة (Cards Grid Layout) تملأ الشاشة فوراً!
             ])
             ->filters([
-                // Auto-injecting SoftDeletes filtering scopes into your Core Tech table
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\ForceDeleteAction::make(),
-                Tables\Actions\RestoreAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                ]),
+                Tables\Actions\ActionGroup::make([ // تجميع الأزرار النمطية في قائمة منبثقة ذكية وموفرة للمساحة
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])->icon('heroicon-m-ellipsis-vertical')
+                  ->color('primary')
             ]);
     }
 

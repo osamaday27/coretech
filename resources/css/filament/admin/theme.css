@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+/* تخصيص الخلفيات */
+.fi-sidebar {
+    background: linear-gradient(180deg, #1e1b4b 0%, #312e81 100%) !important;
+}
+
+/* تخصيص البطاقات */
+.fi-card {
+    border-radius: 16px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease !important;
+}
+
+.fi-card:hover {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-2px);
+}
+
+/* تخصيص الأزرار */
+.fi-btn {
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.fi-btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+}
+
+.fi-btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4) !important;
+}
+
+/* تخصيص الحقول */
+.fi-input {
+    border-radius: 12px !important;
+    border: 2px solid #e2e8f0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.fi-input:focus {
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15) !important;
+}
+
+/* تخصيص شريط التنقل */
+.fi-topbar {
+    backdrop-filter: blur(12px) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6) !important;
+}
+
+/* تخصيص الجداول */
+.fi-table {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+.fi-table thead {
+    background: #f8fafc !important;
+}
+
+.fi-table tbody tr {
+    transition: all 0.2s ease !important;
+}
+
+.fi-table tbody tr:hover {
+    background: #f1f5f9 !important;
+}
+
+/* تخصيص الوضع المظلم */
+.dark .fi-topbar {
+    background: rgba(15, 23, 42, 0.9) !important;
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important;
+}
+
+.dark .fi-card {
+    background: #1e293b !important;
+    border: 1px solid #334155 !important;
+}
+
+.dark .fi-input {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+.dark .fi-table thead {
+    background: #1e293b !important;
+}
+
+.dark .fi-table tbody tr:hover {
+    background: #334155 !important;
+}
+
+/* تأثيرات التحميل */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.fi-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}

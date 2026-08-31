@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Models\Product; // استدعاء موديل المنتجات
-use App\Models\Category; // استدعاء موديل التصنيفات
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -11,20 +9,10 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// 1. الصفحة الرئيسية: تعرض كافة منتجات الهاردوير الحية المسجلة بالسيستم
+// الصفحة الرئيسية: تحميل صفحة welcome الافتراضية والمستقرة
 Route::get('/', function () {
-    $products = Product::where('is_active', true)->with('category')->get();
-    $categories = Category::where('is_visible', true)->get();
-    
-    return view('welcome', compact('products', 'categories'));
+    return view('welcome');
 })->name('shop.home');
-
-// 2. صفحة تفاصيل قطعة هاردوير معينة عند الضغط عليها
-Route::get('/product/{slug}', function ($slug) {
-    $product = Product::where('slug', $slug)->where('is_active', true)->firstOrFail();
-    
-    return view('product-details', compact('product'));
-})->name('shop.product.show');
 
 
 /*
