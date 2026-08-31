@@ -17,7 +17,7 @@
     background: rgba(71, 85, 105, 0.8);
 }
 
-/* تنسيقات إضافية */
+/* حركات مخصصة */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -30,4 +30,15 @@
 }
 .animate-slideDown {
     animation: slideDown 0.5s ease-out forwards;
+}
+
+/* تنسيقات إضافية */
+body {
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* تحديد النصوص */
+::selection {
+    background: #06b6d4;
+    color: #0f172a;
 }

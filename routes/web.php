@@ -1,30 +1,28 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Models\Product; // استدعاء موديل المنتجات للتأكد من ربط صفحة التفاصيل كودياً
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\ShopComponent;
 
 /*
 |--------------------------------------------------------------------------
-| الواجهة الأمامية للمتجر (Core Tech Front-End)
+| الواجهة الأمامية للمتجر
 |--------------------------------------------------------------------------
 */
 
-// 1. الصفحة الرئيسية: تحميل صفحة welcome المستقرة التي تستدعي الـ Livewire Component
-Route::get('/', function () {
-    return view('welcome');
-})->name('shop.home'); // 👈 هذا السطر يحل مشكلة تحذير Route [shop.home] not found فوراً!
+// ✅ الطريقة الصحيحة - استخدام Livewire مباشرة مع Layout
+Route::get('/', ShopComponent::class)->name('shop.home');
 
-// 2. صفحة تفاصيل قطعة الهاردوير: ضرورية جداً لحل تحذيرات روابط التنقل في صفحة الـ Details
+// صفحة تفاصيل القطعة
 Route::get('/product/{slug}', function ($slug) {
     $product = Product::where('slug', $slug)->where('is_active', true)->firstOrFail();
     return view('product-details', compact('product'));
 })->name('shop.product.show');
 
-
 /*
 |--------------------------------------------------------------------------
-| لوحة تحكم المستخدم والـ Profile الافتراضية (Laravel Breeze)
+| لوحة تحكم المستخدم
 |--------------------------------------------------------------------------
 */
 Route::get('/dashboard', function () {

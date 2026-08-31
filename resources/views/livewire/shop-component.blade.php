@@ -9,7 +9,7 @@
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-10">
         
-        <!-- الهيدر -->
+        <!-- ===== HEADER ===== -->
         <header class="relative bg-slate-900/60 backdrop-blur-2xl border border-slate-800/60 rounded-3xl p-5 mb-8 shadow-2xl shadow-cyan-500/5 hover:shadow-cyan-500/10 transition-shadow duration-500">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-4">
@@ -22,6 +22,7 @@
                             <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500 bg-clip-text text-transparent">CORE TECH</span>
                             <span class="text-amber-400 text-[10px] md:text-xs font-bold px-3 py-1 bg-amber-400/10 rounded-full border border-amber-400/20 ml-2 align-middle">HARDWARE</span>
                         </h1>
+                        <p class="text-[10px] text-slate-500 font-medium tracking-widest uppercase hidden sm:block">🚀 متجر القطع الإلكترونية المتخصص</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-3 w-full lg:w-auto justify-between lg:justify-end">
@@ -39,7 +40,7 @@
             <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
         </header>
 
-        <!-- الإشعارات -->
+        <!-- ===== الإشعارات ===== -->
         @if (session()->has('success'))
             <div class="relative mb-6 overflow-hidden rounded-2xl bg-gradient-to-r from-emerald-500/15 to-emerald-500/5 border border-emerald-500/20 backdrop-blur-sm shadow-xl shadow-emerald-500/5 animate-slideDown">
                 <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent"></div>
@@ -74,9 +75,9 @@
             </div>
         @endif
 
-        <!-- الفلترة -->
+        <!-- ===== فلترة التصنيفات ===== -->
         <div class="mb-8">
-            <div class="flex items-center gap-2 overflow-x-auto pb-3">
+            <div class="flex items-center gap-2 overflow-x-auto pb-3 custom-scrollbar">
                 <button wire:click="filterCategory(null)" class="group relative px-5 py-2.5 rounded-2xl text-xs font-bold transition-all duration-300 shrink-0 whitespace-nowrap {{ is_null($selectedCategory) ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-lg shadow-cyan-500/30 scale-105' : 'bg-slate-800/50 border border-slate-700/50 text-slate-400 hover:text-white hover:border-slate-600 hover:scale-105' }}">
                     <span class="relative z-10 flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,14 +94,17 @@
             </div>
         </div>
 
-        <!-- الشبكة الرئيسية -->
+        <!-- ===== المحتوى الرئيسي ===== -->
         <div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
             
-            <!-- المنتجات -->
+            <!-- ===== المنتجات ===== -->
             <div class="xl:col-span-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @forelse($products as $product)
                         <div class="group relative bg-gradient-to-br from-slate-900/80 to-slate-900/40 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-5 hover:border-cyan-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-2">
+                            <div class="absolute -top-24 -right-24 w-48 h-48 bg-cyan-500/5 rounded-full blur-3xl group-hover:bg-cyan-500/15 transition-all duration-700"></div>
+                            <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/15 transition-all duration-700"></div>
+                            
                             <div class="relative w-full h-48 bg-slate-950/80 rounded-xl mb-4 overflow-hidden border border-slate-800 group-hover:border-slate-700 transition-all duration-300">
                                 @if($product->image)
                                     <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="{{ $product->name }}">
@@ -111,15 +115,26 @@
                                         </svg>
                                     </div>
                                 @endif
-                                @if($product->stock > 0)
-                                    <span class="absolute top-3 right-3 px-2.5 py-1 text-[9px] font-black uppercase bg-emerald-500/20 text-emerald-400 rounded-lg border border-emerald-500/20 backdrop-blur-sm">✅ متوفر</span>
-                                @else
-                                    <span class="absolute top-3 right-3 px-2.5 py-1 text-[9px] font-black uppercase bg-red-500/20 text-red-400 rounded-lg border border-red-500/20 backdrop-blur-sm">❌ نفذ</span>
-                                @endif
+                                <div class="absolute top-3 right-3 flex flex-col gap-1.5">
+                                    @if($product->stock > 0)
+                                        <span class="px-2.5 py-1 text-[9px] font-black uppercase bg-emerald-500/20 text-emerald-400 rounded-lg border border-emerald-500/20 backdrop-blur-sm">✅ متوفر</span>
+                                    @else
+                                        <span class="px-2.5 py-1 text-[9px] font-black uppercase bg-red-500/20 text-red-400 rounded-lg border border-red-500/20 backdrop-blur-sm">❌ نفذ</span>
+                                    @endif
+                                    @if($product->stock <= 5 && $product->stock > 0)
+                                        <span class="px-2.5 py-1 text-[9px] font-black uppercase bg-amber-500/20 text-amber-400 rounded-lg border border-amber-500/20 backdrop-blur-sm">⚡ كمية محدودة</span>
+                                    @endif
+                                </div>
                             </div>
-                            <span class="text-[10px] font-black tracking-wider uppercase px-3 py-1 bg-slate-800/80 text-cyan-400 rounded-lg border border-slate-700/50">{{ $product->category->name }}</span>
+                            
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-[10px] font-black tracking-wider uppercase px-3 py-1 bg-slate-800/80 text-cyan-400 rounded-lg border border-slate-700/50">{{ $product->category->name }}</span>
+                                <span class="text-[10px] text-slate-500">📦 {{ $product->stock }} قطعة</span>
+                            </div>
+                            
                             <h3 class="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors duration-300 leading-tight">{{ $product->name }}</h3>
                             <p class="text-xs text-slate-400 mt-2 line-clamp-2 leading-relaxed">{{ $product->description }}</p>
+                            
                             <div class="mt-5 flex items-center justify-between pt-4 border-t border-slate-800/50">
                                 <div>
                                     <span class="text-[9px] uppercase tracking-widest text-slate-500 font-bold">السعر</span>
@@ -149,7 +164,7 @@
                 </div>
             </div>
 
-            <!-- السلة -->
+            <!-- ===== السلة ===== -->
             <div class="xl:col-span-4">
                 <div class="sticky top-8 bg-gradient-to-br from-slate-900/80 to-slate-900/40 backdrop-blur-xl border border-slate-800/50 rounded-2xl p-6 shadow-2xl shadow-cyan-500/5">
                     <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-800/50">
@@ -204,7 +219,7 @@
 
                             <div class="space-y-2">
                                 <label class="text-xs font-bold text-slate-400 flex items-center gap-1">📍 عنوان الشحن <span class="text-red-400">*</span></label>
-                                <input type="text" wire:model.live="shippingAddress" class="w-full bg-slate-950/80 border border-slate-700/50 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 outline-none" placeholder="مثال: مدينة نصر، القاهرة...">
+                                <input type="text" wire:model="shippingAddress" class="w-full bg-slate-950/80 border border-slate-700/50 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 outline-none" placeholder="مثال: مدينة نصر، القاهرة...">
                                 @error('shippingAddress')
                                     <p class="text-xs text-red-400">{{ $message }}</p>
                                 @enderror
@@ -212,17 +227,12 @@
 
                             <div class="space-y-2">
                                 <label class="text-xs font-bold text-slate-400 flex items-center gap-1">📝 ملاحظات إضافية</label>
-                                <textarea wire:model.live="notes" rows="2" class="w-full bg-slate-950/80 border border-slate-700/50 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 outline-none resize-none" placeholder="أي ملاحظات للطلب..."></textarea>
+                                <textarea wire:model="notes" rows="2" class="w-full bg-slate-950/80 border border-slate-700/50 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all duration-300 outline-none resize-none" placeholder="أي ملاحظات للطلب..."></textarea>
                             </div>
 
                             <button wire:click="checkout" class="relative w-full py-3.5 rounded-xl text-sm font-black text-slate-950 overflow-hidden group/check transition-all duration-300 hover:scale-[1.02] active:scale-95">
                                 <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 group-hover/check:from-cyan-400 group-hover/check:to-blue-500 transition-all duration-300"></span>
-                                <span class="relative z-10 flex items-center justify-center gap-3">
-                                    ✅ تأكيد الحجز
-                                    <svg class="w-5 h-5 group-hover/check:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                    </svg>
-                                </span>
+                                <span class="relative z-10 flex items-center justify-center gap-3">✅ تأكيد الحجز</span>
                             </button>
                         </div>
                     @endif
@@ -231,41 +241,4 @@
 
         </div>
     </div>
-
-    <!-- ✅ التنسيقات داخل الـ div الرئيسي -->
-    <style>
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(71, 85, 105, 0.5);
-            border-radius: 9999px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(71, 85, 105, 0.8);
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-slideDown {
-            animation: slideDown 0.5s ease-out forwards;
-        }
-        .delay-1000 {
-            animation-delay: 1000ms;
-        }
-        .delay-2000 {
-            animation-delay: 2000ms;
-        }
-    </style>
 </div>
