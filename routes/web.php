@@ -11,10 +11,10 @@ use App\Livewire\ShopComponent;
 |--------------------------------------------------------------------------
 */
 
-// ✅ الطريقة الصحيحة - استخدام Livewire مباشرة مع Layout
+// الصفحة الرئيسية
 Route::get('/', ShopComponent::class)->name('shop.home');
 
-// صفحة تفاصيل القطعة
+// ✅ صفحة تفاصيل المنتج (مربوطة بالصفحة الرئيسية)
 Route::get('/product/{slug}', function ($slug) {
     $product = Product::where('slug', $slug)->where('is_active', true)->firstOrFail();
     return view('product-details', compact('product'));

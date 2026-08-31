@@ -29,34 +29,20 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             
-            // 🎨 ألوان عصرية - تدرج أنيق
-            ->colors([
-                'primary' => Color::hex('#6366f1'), // بنفسجي أنيق
-                'secondary' => Color::hex('#8b5cf6'),
-                'gray' => Color::hex('#64748b'),
-                'success' => Color::hex('#22c55e'),
-                'warning' => Color::hex('#f59e0b'),
-                'danger' => Color::hex('#ef4444'),
-                'info' => Color::hex('#3b82f6'),
-            ])
-            
-            // ✨ شعار مخصص ونص جانبي
-            ->brandName('لوحة التحكم')
-            ->brandLogo(asset('images/logo.svg'))
+            // ✅ إضافة عنوان للوحة التحكم
+            ->brandName('Core Tech')
             ->brandLogoHeight('2.5rem')
             
-            // 🎯 أيقونات جانبية حديثة
-            ->sidebarCollapsibleOnDesktop()
-            ->sidebarWidth('16rem')
+            // 🎨 ألوان عصرية
+            ->colors([
+                'primary' => Color::Amber,
+                'secondary' => Color::Blue,
+            ])
             
-            // 🌙 الوضع المظلم تلقائي
-            ->darkMode(true)
+            // ✅ تعطيل الوضع المظلم إذا كان يسبب مشاكل
+            ->darkMode(false)
             
-            // 🔍 شريط بحث عام
-            ->globalSearch(true)
-            ->globalSearchKeyBindings(['ctrl+k', 'command+k'])
-            
-            // 📦 اكتشاف الموارد والصفحات
+            // 📊 اكتشاف الموارد
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
@@ -68,24 +54,20 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\FilamentInfoWidget::class,
             ])
             
-            // 🧩 ترتيب القوائم في مجموعات
+            // ✅ إضافة مجموعات القوائم
             ->navigationGroups([
                 NavigationGroup::make()
-                    ->label('الإدارة الرئيسية')
-                    ->icon('heroicon-o-cog-6-tooth')
-                    ->collapsible(false),
+                    ->label('الإدارة')
+                    ->icon('heroicon-o-cog'),
                 NavigationGroup::make()
                     ->label('المحتوى')
-                    ->icon('heroicon-o-document-text'),
-                NavigationGroup::make()
-                    ->label('التقارير')
-                    ->icon('heroicon-o-chart-bar'),
-                NavigationGroup::make()
-                    ->label('الإعدادات')
-                    ->icon('heroicon-o-wrench-screwdriver'),
+                    ->icon('heroicon-o-document'),
             ])
             
-            // 🚀 وسائط مخصصة
+            // ✅ تعطيل الإشعارات إذا كانت تسبب مشاكل
+            // ->databaseNotifications()
+            
+            // ✅ وسائط مخصصة
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -99,22 +81,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ])
-            
-            // 📱 استجابة كاملة للجوال
-            ->viteTheme('resources/css/filament/admin/theme.css')
-            
-            // 🖨️ تخصيص الخطوط
-            ->font('Tajawal')
-            
-            // 💡 إشعارات توست
-            ->databaseNotifications()
-            ->databaseNotificationsPolling('30s')
-            
-            // 🔒 تسجيل دخول مخصص
-            ->loginRouteSlug('login')
-            ->registration(false)
-            ->passwordReset()
-            ->emailVerification();
+            ]);
     }
 }
