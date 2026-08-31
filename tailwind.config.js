@@ -13,9 +13,13 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                colors: {
+                    cyan: { 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2' },
+                    amber: { 400: '#fbbf24', 500: '#f59e0b' }
+                }
             },
         },
     },
 
-    plugins: [forms],
+    plugins: [require('tailwind-scrollbar')],
 };
