@@ -9,45 +9,51 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font -->
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Tajawal', 'Cairo', sans-serif;
+        :root {
+            --mint-primary: #3EB489;
+            --mint-primary-dark: #2D8A6A;
+            --mint-primary-light: #6CD4A8;
+            --mint-primary-bg: #F0F9F5;
+            --mint-primary-border: #D4EDE3;
         }
-        /* تنسيق شريط التمرير */
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #F7FBF9;
+            color: #1A2E26;
+        }
+        
         ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #E8F3EE;
         }
         ::-webkit-scrollbar-thumb {
-            background: #94a3b8;
+            background: var(--mint-primary);
             border-radius: 9999px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
+            background: var(--mint-primary-dark);
         }
-        /* تحديد النص */
+        
         ::selection {
-            background: #2563eb;
-            color: #ffffff;
-        }
-        /* تنسيق البطاقات */
-        .product-card {
-            transition: all 0.3s ease;
-        }
-        .product-card:hover {
-            transform: translateY(-4px);
+            background: var(--mint-primary);
+            color: #FFFFFF;
         }
     </style>
     
     @livewireStyles
 </head>
-<body class="bg-gray-50 text-gray-900 antialiased">
+<body class="bg-[#F7FBF9] text-[#1A2E26] antialiased">
     {{ $slot }}
     @livewireScripts
 </body>

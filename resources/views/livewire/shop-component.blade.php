@@ -1,74 +1,47 @@
-<div class="min-h-screen relative overflow-hidden bg-[#0a0a0f] font-['Orbitron','Tajawal',sans-serif]">
+<div class="min-h-screen bg-[#F7FBF9] font-['Tajawal','Space_Grotesk',sans-serif]">
     
     <!-- ============================================================== -->
-    <!-- 🌌 خلفية الشفق القطبي المتحرك (Aurora Background) -->
+    <!-- 🚀 الهيدر العلوي -->
     <!-- ============================================================== -->
-    <div class="fixed inset-0 -z-10 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#1a0a2e] to-[#0a0a0f]"></div>
-        
-        <div class="aurora-container">
-            <div class="aurora-wave aurora-1"></div>
-            <div class="aurora-wave aurora-2"></div>
-            <div class="aurora-wave aurora-3"></div>
-            <div class="aurora-wave aurora-4"></div>
-        </div>
-        
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-[120px] animate-pulse-slow delay-1500"></div>
-    </div>
-
-    <!-- ============================================================== -->
-    <!-- 🚀 الهيدر - شريط نيوني مستقبلي -->
-    <!-- ============================================================== -->
-    <header class="relative z-20 border-b border-cyan-500/20 bg-[#0a0a0f]/80 backdrop-blur-2xl">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center gap-4">
-                    <div class="relative group">
-                        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-fuchsia-500 flex items-center justify-center shadow-[0_0_30px_rgba(6,182,212,0.3)]">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                            </svg>
-                        </div>
-                        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-fuchsia-500 rounded-lg blur-xl opacity-0 group-hover:opacity-50 transition duration-700"></div>
+    <header class="bg-white border-b border-[#D4EDE3] shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- الشعار -->
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3EB489] to-[#2D8A6A] flex items-center justify-center shadow-md">
+                        <i class="bi bi-cpu text-white text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-black tracking-widest">
-                            <span class="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                                CORE // TECH
-                            </span>
+                        <h1 class="text-xl md:text-2xl font-black tracking-tight text-[#1A2E26]">
+                            Core <span class="text-[#3EB489]">Tech</span>
                         </h1>
-                        <p class="text-[8px] tracking-[0.3em] text-cyan-400/60 uppercase font-light">
-                            ⟡ Hardware Matrix ⟡
+                        <p class="text-[9px] tracking-[0.2em] text-[#3EB489]/60 uppercase font-semibold">
+                            <i class="bi bi-grid-3x3-gap-fill text-[10px]"></i> Hardware Store
                         </p>
                     </div>
                 </div>
                 
-                <div class="flex items-center gap-6">
-                    <div class="hidden md:flex items-center gap-6 text-xs text-cyan-400/60">
-                        <a href="#" class="hover:text-cyan-400 transition border-b border-transparent hover:border-cyan-400 pb-1">المعالجات</a>
-                        <a href="#" class="hover:text-cyan-400 transition border-b border-transparent hover:border-cyan-400 pb-1">كروت الشاشة</a>
-                        <a href="#" class="hover:text-cyan-400 transition border-b border-transparent hover:border-cyan-400 pb-1">المذربورد</a>
+                <!-- الروابط -->
+                <div class="flex items-center gap-4">
+                    <!-- السلة -->
+                    <div class="relative">
+                        <button class="w-10 h-10 rounded-full border border-[#D4EDE3] bg-white flex items-center justify-center text-[#3EB489] hover:border-[#3EB489] hover:shadow-md transition">
+                            <i class="bi bi-cart3 text-lg"></i>
+                            <span class="absolute -top-1 -right-1 w-5 h-5 bg-[#3EB489] text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-sm">
+                                {{ count($cart) }}
+                            </span>
+                        </button>
                     </div>
-                    <div class="flex items-center gap-3">
-                        <div class="relative">
-                            <div class="w-10 h-10 rounded-full border border-cyan-500/20 bg-cyan-500/5 flex items-center justify-center text-cyan-400 hover:border-cyan-400 transition cursor-pointer group">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-                                </svg>
-                                <span class="absolute -top-1 -right-1 w-4 h-4 bg-fuchsia-500 text-[8px] text-white font-bold rounded-full flex items-center justify-center">{{ count($cart) }}</span>
-                            </div>
-                        </div>
-                        @auth
-                            <a href="/admin" class="px-4 py-2 text-xs font-bold text-white bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-lg shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_40px_rgba(6,182,212,0.5)] transition-all duration-300 hover:scale-105">
-                                ⚡ ADMIN
-                            </a>
-                        @else
-                            <a href="/login" class="px-5 py-2 text-xs font-bold text-[#0a0a0f] bg-gradient-to-r from-cyan-400 to-fuchsia-500 rounded-lg shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_40px_rgba(6,182,212,0.5)] transition-all duration-300 hover:scale-105">
-                                ⚡ LOGIN
-                            </a>
-                        @endauth
-                    </div>
+                    
+                    @auth
+                        <a href="/admin" class="text-sm bg-[#3EB489] text-white px-4 py-2 rounded-xl font-bold hover:bg-[#2D8A6A] transition flex items-center gap-2">
+                            <i class="bi bi-speedometer2"></i> لوحة التحكم
+                        </a>
+                    @else
+                        <a href="/login" class="text-sm bg-[#3EB489] text-white px-4 py-2 rounded-xl font-bold hover:bg-[#2D8A6A] transition flex items-center gap-2">
+                            <i class="bi bi-box-arrow-in-right"></i> تسجيل الدخول
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -77,224 +50,220 @@
     <!-- ============================================================== -->
     <!-- 🎯 المحتوى الرئيسي -->
     <!-- ============================================================== -->
-    <main class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 md:px-8 py-8">
         
         <!-- ===== هيرو سيكشن ===== -->
-        <div class="relative grid grid-cols-1 lg:grid-cols-5 gap-8 mb-16">
-            <div class="lg:col-span-3 relative">
-                <div class="relative">
-                    <div class="absolute -top-12 -left-12 text-[120px] font-black text-cyan-500/5 tracking-[-0.1em] select-none">
-                        #CORE
-                    </div>
-                    <div class="relative space-y-4">
-                        <div class="inline-flex items-center gap-3 bg-cyan-500/10 border border-cyan-500/20 rounded-full px-4 py-1.5">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                            <span class="text-[9px] tracking-[0.2em] text-cyan-400 font-bold uppercase">نسخة تجريبية v3.0</span>
-                        </div>
-                        <h1 class="text-5xl md:text-7xl font-black leading-[1.05]">
-                            <span class="text-white">ابني</span>
-                            <br>
-                            <span class="bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-cyan-400 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                                تجميعتك
-                            </span>
-                            <br>
-                            <span class="text-white/60">الآن</span>
-                        </h1>
-                        <p class="text-sm text-cyan-400/60 max-w-md leading-relaxed tracking-wide">
-                            اختر من بين <span class="text-cyan-400 font-bold">300+</span> قطعة هاردوير من أفضل الماركات العالمية.
-                        </p>
-                        <div class="flex flex-wrap gap-4 pt-4">
-                            <a href="#products" class="group relative px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-bold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105">
-                                <span class="relative z-10 flex items-center gap-2">
-                                    استكشف القطع
-                                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                    </svg>
-                                </span>
-                                <span class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-fuchsia-500 blur-xl opacity-0 group-hover:opacity-50 transition-opacity"></span>
-                            </a>
-                            <a href="#" class="px-8 py-3.5 border border-cyan-500/30 text-cyan-400 font-bold rounded-lg hover:bg-cyan-500/10 transition backdrop-blur">
-                                عروض اليوم 🔥
-                            </a>
-                        </div>
-                    </div>
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#3EB489] to-[#2D8A6A] p-8 md:p-12 mb-10 shadow-xl">
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur text-white text-xs font-bold px-4 py-1.5 rounded-full mb-4">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    عروض حصرية
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black text-white leading-tight">
+                    ابني تجميعتك
+                    <br>
+                    <span class="text-[#E8F5EF]">الآن بأفضل الأسعار</span>
+                </h2>
+                <p class="text-white/80 mt-3 max-w-lg text-sm">
+                    اختر من بين <span class="font-bold">300+</span> قطعة هاردوير من أفضل الماركات العالمية.
+                </p>
+                <div class="flex flex-wrap gap-3 mt-6">
+                    <a href="#products" class="px-6 py-3 bg-white text-[#1A2E26] font-bold rounded-xl text-sm hover:bg-[#E8F5EF] transition shadow-lg hover:shadow-xl flex items-center gap-2">
+                        <i class="bi bi-search"></i> استعرض القطع
+                    </a>
+                    <a href="#" class="px-6 py-3 bg-white/20 backdrop-blur text-white font-bold rounded-xl text-sm hover:bg-white/30 transition flex items-center gap-2">
+                        <i class="bi bi-fire"></i> عروض اليوم
+                    </a>
                 </div>
             </div>
-            
-            <div class="lg:col-span-2 flex items-end justify-end">
-                <div class="relative w-full max-w-xs bg-[#0a0a0f]/80 border border-cyan-500/10 rounded-2xl p-6 backdrop-blur-xl shadow-[0_0_60px_rgba(6,182,212,0.05)]">
-                    <div class="absolute -top-3 -right-3 w-20 h-20 bg-gradient-to-br from-cyan-500 to-fuchsia-500 rounded-full blur-2xl opacity-20"></div>
-                    <div class="space-y-6">
-                        <div class="flex items-center justify-between border-b border-cyan-500/10 pb-4">
-                            <span class="text-xs text-cyan-400/60 uppercase tracking-widest">المخزون المباشر</span>
-                            <span class="text-2xl font-black text-cyan-400">308</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <span class="text-[8px] uppercase tracking-widest text-cyan-400/40">ماركات</span>
-                                <p class="text-lg font-bold text-white">52+</p>
-                            </div>
-                            <div>
-                                <span class="text-[8px] uppercase tracking-widest text-cyan-400/40">تقييم</span>
-                                <p class="text-lg font-bold text-fuchsia-400">4.9 ★</p>
-                            </div>
-                            <div>
-                                <span class="text-[8px] uppercase tracking-widest text-cyan-400/40">عملاء</span>
-                                <p class="text-lg font-bold text-white">10K+</p>
-                            </div>
-                            <div>
-                                <span class="text-[8px] uppercase tracking-widest text-cyan-400/40">متصل</span>
-                                <p class="text-lg font-bold text-emerald-400">● Live</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-4 -left-4 w-16 h-16 border border-cyan-500/10 rounded-full"></div>
-                </div>
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-[#E8F5EF]/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/4 right-12 text-white/10 text-6xl">
+                <i class="bi bi-cpu"></i>
+            </div>
+            <div class="absolute bottom-1/4 left-12 text-white/10 text-5xl">
+                <i class="bi bi-motherboard-fill"></i>
+            </div>
+        </div>
+
+        <!-- ===== إحصائيات سريعة ===== -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+            <div class="bg-white border border-[#D4EDE3] rounded-2xl p-5 text-center shadow-sm hover:shadow-md transition">
+                <div class="text-3xl font-black text-[#3EB489]">300+</div>
+                <p class="text-xs text-[#3EB489]/60 font-medium mt-1 flex items-center justify-center gap-1">
+                    <i class="bi bi-grid-3x3-gap-fill"></i> قطعة هاردوير
+                </p>
+            </div>
+            <div class="bg-white border border-[#D4EDE3] rounded-2xl p-5 text-center shadow-sm hover:shadow-md transition">
+                <div class="text-3xl font-black text-[#3EB489]">50+</div>
+                <p class="text-xs text-[#3EB489]/60 font-medium mt-1 flex items-center justify-center gap-1">
+                    <i class="bi bi-tags"></i> ماركة عالمية
+                </p>
+            </div>
+            <div class="bg-white border border-[#D4EDE3] rounded-2xl p-5 text-center shadow-sm hover:shadow-md transition">
+                <div class="text-3xl font-black text-[#F59E0B]">4.9</div>
+                <p class="text-xs text-[#3EB489]/60 font-medium mt-1 flex items-center justify-center gap-1">
+                    <i class="bi bi-star-fill text-[#F59E0B]"></i> تقييم العملاء
+                </p>
+            </div>
+            <div class="bg-white border border-[#D4EDE3] rounded-2xl p-5 text-center shadow-sm hover:shadow-md transition">
+                <div class="text-3xl font-black text-[#3EB489]">10K+</div>
+                <p class="text-xs text-[#3EB489]/60 font-medium mt-1 flex items-center justify-center gap-1">
+                    <i class="bi bi-people-fill"></i> عميل سعيد
+                </p>
             </div>
         </div>
 
         <!-- ===== فلترة التصنيفات ===== -->
-        <div class="mb-12">
-            <div class="flex items-center gap-2 overflow-x-auto pb-4 custom-scrollbar">
+        <div class="mb-8">
+            <div class="flex items-center gap-2 overflow-x-auto pb-3">
                 <button wire:click="filterCategory(null)" 
-                    class="group relative px-6 py-3 rounded-xl text-xs font-bold tracking-widest transition-all duration-300 shrink-0 whitespace-nowrap
+                    class="group px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 shrink-0 whitespace-nowrap flex items-center gap-2
                     {{ is_null($selectedCategory) 
-                        ? 'bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white shadow-[0_0_30px_rgba(6,182,212,0.3)]' 
-                        : 'bg-[#0a0a0f]/60 border border-cyan-500/20 text-cyan-400/60 hover:text-cyan-400 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.1)]' 
+                        ? 'bg-[#3EB489] text-white shadow-md shadow-[#3EB489]/20' 
+                        : 'bg-white border border-[#D4EDE3] text-[#1A2E26] hover:border-[#3EB489] hover:text-[#3EB489]' 
                     }}">
-                    <span class="relative z-10">⟡ جميع القطع</span>
+                    <i class="bi bi-grid-fill"></i> جميع القطع
                 </button>
                 @foreach($categories as $category)
                     <button wire:click="filterCategory({{ $category->id }})" 
-                        class="px-6 py-3 rounded-xl text-xs font-bold tracking-widest transition-all duration-300 shrink-0 whitespace-nowrap
+                        class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 shrink-0 whitespace-nowrap flex items-center gap-2
                         {{ $selectedCategory == $category->id 
-                            ? 'bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white shadow-[0_0_30px_rgba(6,182,212,0.3)]' 
-                            : 'bg-[#0a0a0f]/60 border border-cyan-500/20 text-cyan-400/60 hover:text-cyan-400 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(6,182,212,0.1)]' 
+                            ? 'bg-[#3EB489] text-white shadow-md shadow-[#3EB489]/20' 
+                            : 'bg-white border border-[#D4EDE3] text-[#1A2E26] hover:border-[#3EB489] hover:text-[#3EB489]' 
                         }}">
-                        {{ $category->name }}
+                        <i class="bi bi-tag-fill"></i> {{ $category->name }}
                     </button>
                 @endforeach
             </div>
         </div>
 
+        <!-- ===== الإشعارات ===== -->
+        @if (session()->has('success'))
+            <div class="mb-6 p-4 bg-[#E8F5EF] border border-[#3EB489] rounded-2xl text-[#1A2E26] flex items-center gap-3">
+                <i class="bi bi-check-circle-fill text-[#3EB489] text-xl"></i>
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
+        
+        @if (session()->has('error'))
+            <div class="mb-6 p-4 bg-[#FEF2F2] border border-[#EF4444] rounded-2xl text-[#1A2E26] flex items-center gap-3">
+                <i class="bi bi-exclamation-circle-fill text-[#EF4444] text-xl"></i>
+                <span>{{ session('error') }}</span>
+            </div>
+        @endif
+
         <!-- ===== المنتجات ===== -->
-        <div id="products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div id="products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @forelse($products as $product)
-                <div class="group relative bg-[#0a0a0f]/60 backdrop-blur-xl border border-cyan-500/10 rounded-2xl overflow-hidden hover:border-cyan-500/40 transition-all duration-500 hover:shadow-[0_0_60px_rgba(6,182,212,0.1)] hover:-translate-y-2">
+                <div class="group bg-white border border-[#D4EDE3] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                     
-                    <div class="absolute -top-32 -right-32 w-64 h-64 bg-gradient-to-br from-cyan-500/5 to-fuchsia-500/5 rounded-full blur-3xl group-hover:from-cyan-500/20 group-hover:to-fuchsia-500/20 transition-all duration-700"></div>
-                    
-                    <div class="relative h-52 bg-[#0a0a0f] overflow-hidden">
+                    <!-- صورة المنتج -->
+                    <div class="relative h-48 bg-[#F0F9F5] overflow-hidden">
                         @if($product->image)
                             <a href="{{ route('shop.product.show', $product->slug) }}">
                                 <img src="{{ asset('storage/' . $product->image) }}" 
-                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                      alt="{{ $product->name }}">
                             </a>
                         @else
-                            <div class="w-full h-full flex items-center justify-center">
-                                <svg class="w-16 h-16 text-cyan-500/20 group-hover:text-cyan-500/40 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
+                            <div class="w-full h-full flex items-center justify-center text-[#3EB489]/20">
+                                <i class="bi bi-hdd-stack text-7xl"></i>
                             </div>
                         @endif
                         
-                        <div class="absolute top-3 right-3 flex flex-col gap-1.5">
+                        <!-- حالة المخزون -->
+                        <div class="absolute top-3 right-3">
                             @if($product->stock > 0)
-                                <span class="px-3 py-1 text-[8px] font-bold tracking-wider uppercase bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg backdrop-blur-sm">
-                                    ● متوفر
+                                <span class="px-3 py-1 text-[10px] font-bold bg-[#E8F5EF] text-[#3EB489] rounded-lg border border-[#D4EDE3] flex items-center gap-1">
+                                    <i class="bi bi-check-circle-fill text-[8px]"></i> متوفر
                                 </span>
                             @else
-                                <span class="px-3 py-1 text-[8px] font-bold tracking-wider uppercase bg-red-500/20 text-red-400 border border-red-500/30 rounded-lg backdrop-blur-sm">
-                                    ● نفذ
+                                <span class="px-3 py-1 text-[10px] font-bold bg-[#FEF2F2] text-[#EF4444] rounded-lg border border-[#FECACA] flex items-center gap-1">
+                                    <i class="bi bi-x-circle-fill text-[8px]"></i> نفذ
                                 </span>
                             @endif
                         </div>
                         
+                        <!-- زر التفاصيل -->
                         <a href="{{ route('shop.product.show', $product->slug) }}" 
-                           class="absolute inset-0 bg-[#0a0a0f]/80 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <span class="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-bold rounded-lg text-sm shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:scale-105 transition">
-                                ◈ عرض التفاصيل
+                           class="absolute inset-0 bg-[#1A2E26]/40 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="px-6 py-2.5 bg-white text-[#1A2E26] font-bold rounded-xl text-sm shadow-lg hover:bg-[#F0F9F5] transition flex items-center gap-2">
+                                <i class="bi bi-eye"></i> عرض التفاصيل
                             </span>
                         </a>
                     </div>
                     
-                    <div class="relative z-10 p-5">
-                        <div class="flex items-center justify-between mb-3">
-                            <span class="text-[8px] font-bold tracking-[0.15em] uppercase text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
-                                {{ $product->category->name }}
+                    <!-- معلومات المنتج -->
+                    <div class="p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[9px] font-bold text-[#3EB489] bg-[#F0F9F5] px-3 py-0.5 rounded-full border border-[#D4EDE3] flex items-center gap-1">
+                                <i class="bi bi-tag-fill text-[8px]"></i> {{ $product->category->name }}
                             </span>
-                            <span class="text-xs text-fuchsia-400 font-bold">
-                                ⚡ 4.8
+                            <span class="text-xs text-[#F59E0B] font-bold flex items-center gap-0.5">
+                                <i class="bi bi-star-fill text-[10px]"></i> 4.8
                             </span>
                         </div>
                         
                         <a href="{{ route('shop.product.show', $product->slug) }}">
-                            <h3 class="text-base font-bold text-white group-hover:text-cyan-400 transition line-clamp-1">
+                            <h3 class="text-sm font-bold text-[#1A2E26] group-hover:text-[#3EB489] transition line-clamp-1">
                                 {{ $product->name }}
                             </h3>
                         </a>
                         
-                        <p class="text-xs text-cyan-400/50 mt-2 line-clamp-2 leading-relaxed">
+                        <p class="text-xs text-[#3EB489]/50 mt-1.5 line-clamp-2 leading-relaxed">
                             {{ $product->description }}
                         </p>
                         
-                        <div class="mt-4 flex items-center justify-between pt-4 border-t border-cyan-500/10">
+                        <div class="mt-4 flex items-center justify-between pt-3 border-t border-[#D4EDE3]">
                             <div>
-                                <span class="text-xs text-cyan-400/40 font-bold tracking-widest">السعر</span>
-                                <div class="text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-500">
+                                <span class="text-[10px] text-[#3EB489]/40 font-semibold tracking-wide">السعر</span>
+                                <div class="text-lg font-black text-[#1A2E26]">
                                     {{ number_format($product->price) }}
-                                    <span class="text-[10px] font-normal text-cyan-400/40">ج.م</span>
+                                    <span class="text-[10px] font-normal text-[#3EB489]/40">ج.م</span>
                                 </div>
                             </div>
                             
                             @if($product->stock > 0)
                                 <button wire:click="addToCart({{ $product->id }})" 
-                                    class="relative px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-bold rounded-lg text-[10px] overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
-                                    <span class="relative z-10 flex items-center gap-1.5">
-                                        + إضافة
-                                    </span>
+                                    class="px-4 py-2.5 bg-[#3EB489] text-white font-bold rounded-xl text-[10px] hover:bg-[#2D8A6A] transition shadow-sm hover:shadow-md flex items-center gap-1.5">
+                                    <i class="bi bi-cart-plus"></i> إضافة
                                 </button>
                             @else
-                                <span class="text-[10px] text-red-400 font-bold bg-red-500/10 border border-red-500/20 px-4 py-2 rounded-lg">
-                                    ● نفد
+                                <span class="text-[10px] text-[#EF4444] font-bold bg-[#FEF2F2] px-3 py-1.5 rounded-lg border border-[#FECACA] flex items-center gap-1">
+                                    <i class="bi bi-x-circle"></i> نفد
                                 </span>
                             @endif
                         </div>
                     </div>
                 </div>
             @empty
-                <div class="col-span-full flex flex-col items-center justify-center py-24 text-center">
-                    <div class="relative">
-                        <div class="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-500/10 to-fuchsia-500/10 flex items-center justify-center">
-                            <svg class="w-16 h-16 text-cyan-500/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <div class="absolute -inset-4 bg-gradient-to-r from-cyan-500 to-fuchsia-500 rounded-full blur-2xl opacity-10"></div>
+                <div class="col-span-full flex flex-col items-center justify-center py-20 text-center">
+                    <div class="w-32 h-32 rounded-full bg-[#F0F9F5] flex items-center justify-center mb-6">
+                        <i class="bi bi-hdd-stack text-6xl text-[#3EB489]/30"></i>
                     </div>
-                    <p class="text-cyan-400/60 text-base font-bold mt-6">لا توجد قطع متاحة</p>
-                    <p class="text-cyan-400/30 text-sm mt-1">جرب تغيير التصنيف المحدد</p>
+                    <p class="text-[#1A2E26] text-base font-bold">لا توجد قطع متاحة</p>
+                    <p class="text-[#3EB489]/50 text-sm mt-1">جرب تغيير التصنيف المحدد</p>
                 </div>
             @endforelse
         </div>
         
         <!-- ===== عرض حصري ===== -->
-        <div class="relative mt-16 overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-500/10 via-fuchsia-500/10 to-cyan-500/10 border border-cyan-500/20 p-8 md:p-12">
-            <div class="absolute -top-20 -right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-fuchsia-500/10 rounded-full blur-3xl"></div>
+        <div class="relative mt-12 overflow-hidden rounded-3xl bg-gradient-to-r from-[#3EB489] to-[#2D8A6A] p-8 md:p-10 shadow-xl">
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-[#E8F5EF]/5 rounded-full blur-3xl"></div>
             <div class="relative z-10 text-center">
-                <span class="inline-block text-[8px] tracking-[0.2em] text-cyan-400 font-bold uppercase bg-cyan-500/10 border border-cyan-500/20 px-4 py-1.5 rounded-full mb-4">
-                    ⟡ عرض محدود ⟡
+                <span class="inline-block text-xs font-bold text-white bg-white/20 backdrop-blur px-4 py-1.5 rounded-full mb-4">
+                    <i class="bi bi-gift-fill"></i> عرض محدود
                 </span>
                 <h3 class="text-2xl md:text-4xl font-black text-white">
-                    خصم <span class="bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text text-transparent">20%</span> على أول طلب
+                    خصم <span class="text-[#E8F5EF]">20%</span> على أول طلب
                 </h3>
-                <p class="text-cyan-400/60 mt-2 text-sm max-w-md mx-auto">
+                <p class="text-white/80 mt-2 text-sm max-w-md mx-auto">
                     اشترك الآن واحصل على خصم 20% على أول عملية شراء. العرض ساري لفترة محدودة!
                 </p>
-                <a href="#" class="inline-block mt-6 px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-fuchsia-500 text-white font-bold rounded-lg shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_60px_rgba(6,182,212,0.5)] transition-all duration-300 hover:scale-105">
-                    اشترك الآن ⚡
+                <a href="#" class="inline-block mt-6 px-8 py-3.5 bg-white text-[#1A2E26] font-bold rounded-xl shadow-lg hover:shadow-xl transition hover:bg-[#E8F5EF] flex items-center gap-2 mx-auto">
+                    <i class="bi bi-envelope-paper-fill"></i> اشترك الآن
                 </a>
             </div>
         </div>
@@ -303,177 +272,90 @@
     <!-- ============================================================== -->
     <!-- 📱 Footer -->
     <!-- ============================================================== -->
-    <footer class="relative z-10 border-t border-cyan-500/10 mt-16 bg-[#0a0a0f]/80 backdrop-blur-2xl">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 py-12">
+    <footer class="bg-white border-t border-[#D4EDE3] mt-12">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-10">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <div>
-                    <h4 class="text-xs font-bold text-cyan-400 tracking-widest uppercase mb-4">⟡ Core Tech</h4>
-                    <ul class="space-y-2 text-xs text-cyan-400/40">
-                        <li><a href="#" class="hover:text-cyan-400 transition">من نحن</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">اتصل بنا</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">الشروط</a></li>
+                    <h4 class="text-sm font-bold text-[#1A2E26] mb-4 flex items-center gap-2">
+                        <i class="bi bi-cpu text-[#3EB489]"></i> Core Tech
+                    </h4>
+                    <ul class="space-y-2 text-sm text-[#3EB489]/60">
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> من نحن</a></li>
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> اتصل بنا</a></li>
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> الشروط والأحكام</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold text-cyan-400 tracking-widest uppercase mb-4">⟡ تسوق</h4>
-                    <ul class="space-y-2 text-xs text-cyan-400/40">
-                        <li><a href="#" class="hover:text-cyan-400 transition">المعالجات</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">كروت الشاشة</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">المذربورد</a></li>
+                    <h4 class="text-sm font-bold text-[#1A2E26] mb-4 flex items-center gap-2">
+                        <i class="bi bi-shop text-[#3EB489]"></i> تسوق
+                    </h4>
+                    <ul class="space-y-2 text-sm text-[#3EB489]/60">
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> معالجات</a></li>
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> كروت الشاشة</a></li>
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> مذربورد</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold text-cyan-400 tracking-widest uppercase mb-4">⟡ الدعم</h4>
-                    <ul class="space-y-2 text-xs text-cyan-400/40">
-                        <li><a href="#" class="hover:text-cyan-400 transition">الأسئلة الشائعة</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">سياسة الإرجاع</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition">الشحن</a></li>
+                    <h4 class="text-sm font-bold text-[#1A2E26] mb-4 flex items-center gap-2">
+                        <i class="bi bi-headset text-[#3EB489]"></i> الدعم
+                    </h4>
+                    <ul class="space-y-2 text-sm text-[#3EB489]/60">
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> الأسئلة الشائعة</a></li>
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> سياسة الإرجاع</a></li>
+                        <li><a href="#" class="hover:text-[#3EB489] transition flex items-center gap-2"><i class="bi bi-chevron-left text-[10px]"></i> الشحن والتوصيل</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold text-cyan-400 tracking-widest uppercase mb-4">⟡ تابعنا</h4>
-                    <div class="flex gap-3 text-cyan-400/40">
-                        <a href="#" class="hover:text-cyan-400 transition text-lg">⌘</a>
-                        <a href="#" class="hover:text-cyan-400 transition text-lg">⌥</a>
-                        <a href="#" class="hover:text-cyan-400 transition text-lg">⌃</a>
-                        <a href="#" class="hover:text-cyan-400 transition text-lg">⇧</a>
+                    <h4 class="text-sm font-bold text-[#1A2E26] mb-4 flex items-center gap-2">
+                        <i class="bi bi-share-fill text-[#3EB489]"></i> تابعنا
+                    </h4>
+                    <div class="flex gap-3 text-[#3EB489]/50">
+                        <a href="#" class="w-10 h-10 rounded-full border border-[#D4EDE3] flex items-center justify-center hover:border-[#3EB489] hover:text-[#3EB489] hover:bg-[#F0F9F5] transition">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-[#D4EDE3] flex items-center justify-center hover:border-[#3EB489] hover:text-[#3EB489] hover:bg-[#F0F9F5] transition">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-[#D4EDE3] flex items-center justify-center hover:border-[#3EB489] hover:text-[#3EB489] hover:bg-[#F0F9F5] transition">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-[#D4EDE3] flex items-center justify-center hover:border-[#3EB489] hover:text-[#3EB489] hover:bg-[#F0F9F5] transition">
+                            <i class="bi bi-youtube"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="text-center text-[10px] text-cyan-400/20 border-t border-cyan-500/10 pt-6 mt-6 tracking-widest">
-                ⟡ CORE // TECH — MATRIX v3.0 — ⟡
+            <div class="text-center text-xs text-[#3EB489]/30 border-t border-[#D4EDE3] pt-6 mt-6">
+                <i class="bi bi-cpu"></i> Core Tech &copy; {{ date('Y') }} — جميع الحقوق محفوظة <i class="bi bi-motherboard-fill"></i>
             </div>
         </div>
     </footer>
 
     <!-- ============================================================== -->
-    <!-- 🎨 الأنماط (داخل الـ div الرئيسي) -->
+    <!-- 🎨 التنسيقات داخل الـ div -->
     <!-- ============================================================== -->
     <style>
-        /* الخطوط المميزة */
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap');
-        
-        /* خلفية الشفق القطبي */
-        .aurora-container {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-        }
-        
-        .aurora-wave {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: aurora 8s ease-in-out infinite alternate;
-        }
-        
-        .aurora-1 {
-            width: 80%;
-            height: 60%;
-            top: -10%;
-            left: -20%;
-            background: radial-gradient(ellipse, rgba(6, 182, 212, 0.4), transparent 70%);
-            animation-duration: 10s;
-        }
-        
-        .aurora-2 {
-            width: 70%;
-            height: 50%;
-            bottom: -10%;
-            right: -20%;
-            background: radial-gradient(ellipse, rgba(192, 38, 211, 0.3), transparent 70%);
-            animation-duration: 12s;
-            animation-delay: -3s;
-        }
-        
-        .aurora-3 {
-            width: 60%;
-            height: 40%;
-            top: 20%;
-            left: 30%;
-            background: radial-gradient(ellipse, rgba(6, 182, 212, 0.2), transparent 70%);
-            animation-duration: 14s;
-            animation-delay: -6s;
-        }
-        
-        .aurora-4 {
-            width: 50%;
-            height: 30%;
-            bottom: 30%;
-            right: 10%;
-            background: radial-gradient(ellipse, rgba(192, 38, 211, 0.15), transparent 70%);
-            animation-duration: 16s;
-            animation-delay: -9s;
-        }
-        
-        @keyframes aurora {
-            0% {
-                transform: translate(0, 0) scale(1) rotate(0deg);
-                opacity: 0.2;
-            }
-            33% {
-                transform: translate(5%, -5%) scale(1.1) rotate(5deg);
-                opacity: 0.4;
-            }
-            66% {
-                transform: translate(-5%, 5%) scale(0.9) rotate(-5deg);
-                opacity: 0.3;
-            }
-            100% {
-                transform: translate(3%, -3%) scale(1.05) rotate(3deg);
-                opacity: 0.4;
-            }
-        }
-        
-        /* حركة النيون */
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .animate-gradient {
-            animation: gradient 3s ease infinite;
-            background-size: 200% auto;
-        }
-        
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.1; }
-            50% { opacity: 0.3; }
-        }
-        .animate-pulse-slow {
-            animation: pulse-slow 4s ease-in-out infinite;
-        }
-        .delay-1500 {
-            animation-delay: 1.5s;
-        }
-        
-        /* شريط التمرير */
         .custom-scrollbar::-webkit-scrollbar {
-            height: 2px;
+            height: 3px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(6, 182, 212, 0.05);
+            background: #E8F3EE;
+            border-radius: 9999px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: linear-gradient(to right, #06b6d4, #d946ef);
+            background: #3EB489;
             border-radius: 9999px;
         }
-        
-        ::selection {
-            background: #06b6d4;
-            color: #0a0a0f;
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #2D8A6A;
         }
         
-        ::-webkit-scrollbar {
-            width: 6px;
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0f;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(to bottom, #06b6d4, #d946ef);
-            border-radius: 9999px;
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(62, 180, 137, 0.12);
         }
     </style>
 </div>

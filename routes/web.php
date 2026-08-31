@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\ShopComponent;
+use App\Livewire\ProductDetails;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,8 @@ use App\Livewire\ShopComponent;
 // الصفحة الرئيسية
 Route::get('/', ShopComponent::class)->name('shop.home');
 
-// ✅ صفحة تفاصيل المنتج (مربوطة بالصفحة الرئيسية)
-Route::get('/product/{slug}', function ($slug) {
-    $product = Product::where('slug', $slug)->where('is_active', true)->firstOrFail();
-    return view('product-details', compact('product'));
-})->name('shop.product.show');
+// ✅ صفحة تفاصيل المنتج - باستخدام Livewire Component
+Route::get('/product/{slug}', ProductDetails::class)->name('shop.product.show');
 
 /*
 |--------------------------------------------------------------------------
