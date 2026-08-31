@@ -252,11 +252,9 @@ class OrderResource extends Resource
         return [
             'index' => Pages\ListOrders::route('/'),
             'create' => Pages\CreateOrder::route('/create'),
-            'view' => Pages\ViewOrder::route('/{record}'),
             'edit' => Pages\EditOrder::route('/{record}/edit'),
         ];
     }
-
     // Overriding queries to cleanly list both active tracking logs and deleted trash data
     public static function getEloquentQuery(): Builder
     {
