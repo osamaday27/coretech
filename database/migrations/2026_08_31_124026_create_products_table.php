@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->json('gallery')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->dropSoftDeletes();
 
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }
