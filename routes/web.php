@@ -6,16 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\ShopComponent;
 use App\Livewire\ProductDetails;
 
-/*
-|--------------------------------------------------------------------------
-| الواجهة الأمامية للمتجر
-|--------------------------------------------------------------------------
-*/
-
 // الصفحة الرئيسية
 Route::get('/', ShopComponent::class)->name('shop.home');
 
-// ✅ صفحة تفاصيل المنتج - باستخدام Livewire Component
+// صفحة تفاصيل المنتج
 Route::get('/product/{slug}', ProductDetails::class)->name('shop.product.show');
 
 /*
